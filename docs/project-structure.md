@@ -1,121 +1,111 @@
+# Project Structure
 
-# Project Structure Guidelines (Godot)
+This document explains the purpose and organization of each folder in this Godot project template.
 
-This document outlines a simplified, scalable folder structure for organizing a Godot project. It balances clarity, modularity, and ease of reuse while keeping the root directory clean.
+## Root Files
 
----
+- **`project.godot`** - Main Godot project configuration file
+- **`icon.svg`** - Project icon in SVG format
+- **`icon.svg.import`** - Godot import settings for the icon
+- **`rename-project.sh`** - Script to rename the project template
+- **`README.md`** - Project overview and quick start guide
 
-## 📁 Root-Level Folders
+## Folder Structure
 
-```
-ProjectRoot/
-├── actors
-├── assets
-├── autoload
-├── common
-│   ├── audio
-│   ├── fonts
-│   ├── fx
-│   ├── models
-│   ├── scenes
-│   ├── scripts
-│   └── textures
-├── docs
-├── scenes
-├── systems
-└── ui
-└── project.godot
-```
+### 📁 `addons/`
+Contains Godot addons and plugins that extend the editor functionality or provide additional features for the project. This is where you'll place third-party plugins or custom tools.
 
----
+### 📁 `autoload/`
+Holds singleton scripts that are automatically loaded when the project starts. These scripts are accessible from anywhere in the project and persist across scene changes. Common uses include:
+- Game managers
+- Audio managers
+- Settings managers
+- Global utility functions
 
-## Folder Breakdown
+### 📁 `common/`
+Contains shared resources and assets used throughout the project:
 
-### `assets/`
-Holds source files not used directly in the Godot project:
+#### 📁 `common/animations/`
+Stores animation files (`.anim`, `.tres`) that can be reused across multiple scenes and objects.
 
-- `.blend`, `.fbx` — 3D model source files  
-- `.psd`, `.kra`, `.ase` — Art source files  
-- `.flac`, `.wav` — Audio masters  
-- Design documents, reference material
+#### 📁 `common/audio/`
+Audio assets organized by type:
+- **`music/`** - Background music tracks and ambient sounds
+- **`sfx/`** - Sound effects for UI, gameplay, and environmental audio
 
-### `autoload/`
-Global singleton scripts loaded at startup:
+#### 📁 `common/fonts/`
+Font files (`.ttf`, `.otf`) and font resources for UI text and in-game text rendering.
 
-- `game.gd` — Game state manager  
-- `input.gd` — Centralized input handler  
+#### 📁 `common/materials/`
+Material resources (`.tres`, `.material`) for 3D objects, including shaders and surface properties.
 
-Set these via **Project → Project Settings → Autoload**.
+#### 📁 `common/models/`
+3D model files (`.glb`, `.gltf`, `.obj`) and their associated resources.
 
-### `actors/`
-Contains all controllable or autonomous entities:
+#### 📁 `common/scenes/`
+Reusable scene components and prefabs that can be instantiated in multiple places throughout the project.
 
-- `player/` — Player-specific scene and script  
-- `enemy_gunner/` — Example enemy
+#### 📁 `common/scripts/`
+Shared utility scripts, base classes, and helper functions used across the project.
 
-Each actor subfolder can mirror the `common/` layout if it includes unique assets:
+#### 📁 `common/textures/`
+Image files (`.png`, `.jpg`, `.svg`) used for sprites, UI elements, and material textures.
 
-```
-actors/player/
-├── player.tscn
-├── player.gd
-├── models/           # Unique 3D models
-├── fx/               # Custom particles or shaders
-├── audio/            # Actor-specific SFX
-└── animations/       # GLTF or .anim files
-```
+#### 📁 `common/vfx/`
+Visual effects resources including particle systems, shaders, and animation effects.
 
-This keeps actors modular and separates reusable content from specialized ones.
+### 📁 `docs/`
+Project documentation including:
+- Development guidelines
+- Project structure explanations
+- Setup instructions
+- Code standards and conventions
 
-### `common/`
-Shared, reusable assets:
+### 📁 `entities/`
+Contains scene files and scripts for game objects and characters:
+- Player characters
+- NPCs
+- Enemies
+- Interactive objects
+- Collectibles
 
-- `audio/` — Shared SFX  
-- `fx/` — Generic VFX, particles, shaders  
-- `scripts/` — Utility scripts  
-- `scenes/` — Generic objects like doors, switches  
-- `textures/` — UI graphics, tilemaps, icons  
-- `fonts/` — Text rendering fonts  
-- `models/` — GLTF/OBJ files used across scenes
+### 📁 `external/`
+Third-party resources, libraries, and assets that are not part of the core project but are required for functionality.
 
-### `docs/`
-Design documentation:
+### 📁 `maps/`
+Level and world scene files:
+- Game levels
+- Overworld maps
+- Menu scenes
+- Cutscene environments
 
-- Game Design Documents (GDDs)  
-- Narrative outlines  
-- Flowcharts, planning notes
+### 📁 `systems/`
+Contains scripts and scenes for game systems and mechanics:
+- Inventory systems
+- Dialogue systems
+- Save/load systems
+- Combat systems
+- Physics systems
 
-### `scenes/`
-Major game scenes and levels:
+### 📁 `ui/`
+User interface elements and scenes:
+- Main menu
+- HUD elements
+- Settings menus
+- Dialog boxes
+- Loading screens
 
-- `main.tscn` — Entry point scene  
-- `demo/` — Prototype/demo area  
-- Organize further by area/region if needed
+## Best Practices
 
-### `systems/`
-Self-contained logic systems:
+1. **Naming Convention**: Use lowercase with hyphens for folder names and descriptive names for files
+2. **Organization**: Keep related assets together and maintain the folder structure
+3. **Documentation**: Update this document when adding new major folders or changing structure
+4. **Version Control**: Use `.gdignore` files to exclude unnecessary files from version control
 
-- `combat.gd` — Handles combat logic  
-- `save_system.gd` — Save/load functionality  
-- `dialogue_manager.gd` — Dialogue system
+## Getting Started
 
-### `ui/`
-All user interface elements:
-
-- `hud.tscn`, `menu.tscn` — Full UI scenes  
-- `components/` — Buttons, bars, and reusable widgets
-
----
-
-## 🧠 Best Practices
-
-- **Modular design**: Use small, composable scenes.  
-- **Scripts follow scenes**: Keep scripts next to their scene, unless shared.  
-- **Group by function**: Prefer role-based organization over asset-type-only folders.  
-- **Keep root clean**: Avoid clutter by limiting top-level folders.  
-- **Autoload responsibly**: Only place truly global systems in `autoload`.  
-- **Mirror `common/` in actor folders if needed**: Organize specific assets like models or effects locally when not reused elsewhere.
-
----
-
-This layout scales well for solo developers and small teams, supporting clean modular development as the project grows.
+1. Use the `rename-project.sh` script to rename the template
+2. Start by creating your main scenes in `maps/`
+3. Add reusable components to `common/scenes/`
+4. Create game-specific entities in `entities/`
+5. Build your UI elements in `ui/`
