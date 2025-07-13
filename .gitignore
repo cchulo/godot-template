@@ -15,68 +15,13 @@ export_credentials.cfg
 data_*/
 mono_crash.*.json
 
-# Video Files
-*.mp4
-*.mov
-*.avi
-*.webm
-*.mkv
-
-# Audio Files
-*.wav
-*.mp3
-*.ogg
-*.flac
-*.m4a
-*.mod
-*.it
-*.s3m
-*.xm
-*.aiff
-*.aif
-
-# 3D models
-*.fbx
-*.obj
-*.mtl
-*.gltf
-*.glb
-*.dae
-*.3ds
-*.c4d
-*.blend
-*.stl
-*.abc
-
-# 2D images
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.bmp
-*.tga
-*.webp
-*.svg
-*.ico
-*.exr
-*.dds
-*.psd
-*.xcf
-*.kra
-!icon.svg
-!icon.png
-
-# Binary Data
-*.bin
-*.dat
+# Binaries
 *.cache
 *.bak
 *.tmp
 *.db
 *.pdb
 *.idb
-*.blob
-*.res
 
 ## A streamlined .gitignore for modern .NET projects
 ## including temporary files, build results, and

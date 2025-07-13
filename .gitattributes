@@ -1,2 +1,69 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+[attr]lock filter=lfs diff=lfs merge=binary -text lockable
+[attr]lockonly lockable
+[attr]lfs filter=lfs diff=lfs merge=binary -text
+[attr]lfstext filter=lfs diff=lfstext merge=lfstext -text
+
+
+# Video Files
+*.mp4 lfs
+*.mov lfs
+*.avi lfs
+*.webm lfs
+*.mkv lfs
+*.bk2 lfs
+
+# Audio Files
+*.wav lfs
+*.mp3 lfs
+*.ogg lfs
+*.flac lfs
+*.m4a lfs
+*.mod lfs
+*.it lfs
+*.s3m lfs
+*.xm lfs
+*.aiff lfs
+*.aif lfs
+*.bank lfs
+
+# 3D models
+*.fbx lfs
+*.obj lfs
+*.mtl lfs
+*.gltf lfs
+*.glb lfs
+*.dae lfs
+*.3ds lfs
+*.c4d lfs
+*.blend lfs
+*.stl lfs
+*.abc lfs
+
+# 2D images
+*.png lfs
+*.jpg lfs
+*.jpeg lfs
+*.gif lfs
+*.bmp lfs
+*.tga lfs
+*.webp lfs
+*.svg lfs
+*.ico lfs
+*.exr lfs
+*.dds lfs
+*.psd lfs
+*.xcf lfs
+*.kra lfs
+!icon.svg
+!icon.png
+
+# Binaries
+*.bin lfs
+*.dat lfs
+*.blob lfs
+*.res lfs
+*.exe lfs
+*.dll lfs
+*.rcc lfs
