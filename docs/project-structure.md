@@ -2,14 +2,6 @@
 
 This document explains the purpose and organization of each folder in this Godot project template.
 
-## Root Files
-
-- **`project.godot`** - Main Godot project configuration file
-- **`icon.svg`** - Project icon in SVG format
-- **`icon.svg.import`** - Godot import settings for the icon
-- **`rename-project.sh`** - Script to rename the project template
-- **`README.md`** - Project overview and quick start guide
-
 ## Folder Structure
 
 ### 📁 `addons/`
