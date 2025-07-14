@@ -56,8 +56,6 @@
 *.psd lfs
 *.xcf lfs
 *.kra lfs
-!icon.svg
-!icon.png
 
 # Binaries
 *.bin lfs
