@@ -50,12 +50,14 @@
 *.tga lfs
 *.webp lfs
 *.svg lfs
-*.ico lfs
 *.exr lfs
 *.dds lfs
 *.psd lfs
 *.xcf lfs
 *.kra lfs
+*.ico lfs
+icon.svg !lfs text
+icon.png !lfs binary
 
 # Binaries
 *.bin lfs
